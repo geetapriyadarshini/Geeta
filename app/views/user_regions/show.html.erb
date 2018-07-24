@@ -1,0 +1,28 @@
+<body bgcolor="#CCCCFF">
+
+<p>
+  <strong> User:</strong>
+  <%= @u_region.user.email %>
+</p>
+ 
+ <p>
+  <strong> Region:</strong>
+  <%= @u_region.region.region_name %>
+</p>
+ 
+
+ <%= link_to 'List User_regions', user_regions_path %>
+<%= link_to 'Edit', edit_user_region_path(@u_region) %> 
+
+
+
+
+</body>
+
+
+
+
+
+
+
+

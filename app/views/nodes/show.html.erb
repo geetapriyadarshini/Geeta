@@ -1,0 +1,27 @@
+<body bgcolor="#CCCCFF">
+
+<p>
+  <strong> Name_name:</strong>
+  <%= @node.node_name %>
+</p>
+ 
+ <p>
+  <strong> place:</strong>
+  <%= @node.place.place_name %>
+</p>
+ 
+
+ <%= link_to 'List Nodes', nodes_path %>
+<%= link_to 'Edit', edit_node_path(@node) %> 
+
+
+
+
+</body>
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<body bgcolor="sky blue">
+<h2>Go To</h2>
+<%#= link_to 'me', geeta_me_path %>
+<%= link_to 'new fr', new_user_role_path %>
+
+<h1>Listing roles</h1>
+<table>
+  <tr>
+    <th>Role Name</th>
+    <th colspan="3">Show and Edit</th>
+  </tr>
+ 
+  <% @u_roles.each do |role| %>
+    <tr>
+      <td><%= role.role_name %></td>
+      <td><%= link_to 'Show', user_role_path(role) %></td>
+      <td><%= link_to 'Edit', edit_user_role_path(role) %></td>
+      <td><%= link_to 'Delete', user_roles_path(role),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</body>

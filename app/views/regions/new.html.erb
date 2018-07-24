@@ -1,0 +1,33 @@
+<body bgcolor="OOCC99"></body>
+<%= form_with scope: :region, url: regions_path, local: true do |form| %>
+
+<% if @region.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@region.errors.count, "error") %> prohibited
+        this region from being saved:
+      </h2>
+      <ul>
+        <% @region.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <p>
+    <%= form.label :Region_name %>
+    <%= form.text_field :region_name %>
+</p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+
+  
+<%#= link_to 'me', geeta_path%>
+ 
+<%= link_to 'List nodes', regions_path %>
+<% end %>

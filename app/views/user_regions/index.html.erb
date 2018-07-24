@@ -1,0 +1,28 @@
+<body bgcolor="sky blue">
+<h2>Go To</h2>
+<%#= link_to 'me', geeta_me_path %>
+<%= link_to 'new form', new_user_region_path %>
+
+<h1>Listing user regions</h1>
+<table>
+  <tr>
+    <th>User_id</th>
+    <th>Region_Id</th>
+    <th colspan="3">Show and Edit</th>
+  </tr>
+ 
+  <% @u_regions.each do |region| %>
+    <tr>
+      <td><%= region.user_id %></td>
+      <td><%= region.region_id %></td>
+     
+      <td><%= link_to 'Show', user_region_path(region) %></td>
+      <td><%= link_to 'Edit', edit_user_region_path(region) %></td>
+      <td><%= link_to 'Delete', user_region_path(region),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%#= link_to 'Show', company_path(:company) %>
+</body>

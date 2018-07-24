@@ -1,0 +1,35 @@
+<body bgcolor="OOCC99"></body>
+<%= form_with scope: :country, url: countries_path, local: true do |form| %>
+
+<% if @country.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@country.errors.count, "error") %> prohibited
+        this from being saved:
+      </h2>
+      <ul>
+        <% @country.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <p>
+    <%= form.label :country_name %><br>
+    <%= form.text_field :country_name %>
+  </p>
+  
+  
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+
+  
+<%#= link_to 'me', geeta_path%>
+ 
+<%= link_to 'List country', countries_path %>
+<% end %>

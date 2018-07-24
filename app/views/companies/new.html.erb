@@ -1,0 +1,59 @@
+<body bgcolor="OOCC99"></body>
+<%= form_with scope: :company, url: companies_path, local: true do |form| %>
+
+<% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@company.errors.count, "error") %> prohibited
+        this company from being saved:
+      </h2>
+      <ul>
+        <% @company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <p>
+    <%= form.label :Company_Name %>
+    <%= form.text_field :name %>
+</p>
+<p>
+     <%= form.label :Select_Country %>
+       <%= form.collection_select :country_id, Country.order(:country_name),:id,:country_name, include_blank: true %>
+  </p>
+  <p>
+
+     <%= form.label :Select_state %>
+      <%= form.collection_select :state_id, State.order(:state_name),:id,:state_name, include_blank: true %>
+   
+</p>
+<p>
+     <%= form.label :Select_City %>
+      <%= form.collection_select :city_id, City.order(:city_name),:id,:city_name, include_blank: true %>
+    </p>
+
+    <p>
+
+     <%= form.label :PostCode %>
+      <%= form.text_field :postcode%>
+</p>
+
+<p>
+      <%= form.label :Start_date %>
+     <input data-provide="datetimepicker">
+     <%#= form.text_field :start_date %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+
+  
+<%#= link_to 'me', geeta_path%>
+ 
+<%= link_to 'List company', companies_path %>
+<% end %>

@@ -1,0 +1,33 @@
+<body bgcolor="#9999FF">
+<h1>Editing</h1>
+
+<%= form_with scope: :region, url: regions_path(@region), local: true do |form| %>
+
+<% if @region.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@region.errors.count, "error") %> prohibited
+        this region from being saved:
+      </h2>
+      <ul>
+        <% @region.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :region_name %><br>
+    <%= form.text_field :region_name %>
+  </p>
+
+  
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', regions_path %>
+</body>

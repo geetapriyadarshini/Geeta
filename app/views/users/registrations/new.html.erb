@@ -1,0 +1,74 @@
+<h2>Register</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :First_Name%><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+<div class="field">
+    <%= f.label :Last_Name%><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :select_company %>
+       <%= f.collection_select :company_id, Company.order(:name),:id,:name, include_blank: true,  autofocus: true %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :select_Role %>
+       <%= f.collection_select :user_role_id, UserRole.order(:role_name),:id,:role_name, include_blank: true,  autofocus: true %>
+  </div>  
+
+  <div class= "field">
+    <%= f.label :select_image %>
+       <%= f.collection_select :img_id, Img.order(:real_name),:id,:real_name, include_blank: true,  autofocus: true%>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date%><br />
+    <%= f.text_field :start_date, autofocus: true %>
+  </div>
+
+<div class="field">
+    <%= f.label :end_date%><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :monthly_charge%><br />
+    <%= f.text_field :monthly_charge, autofocus: true %>
+  </div>
+
+<div class="field">
+    <%= f.label :notes%><br />
+    <%= f.check_box :notes, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>

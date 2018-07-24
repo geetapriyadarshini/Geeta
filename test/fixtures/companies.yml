@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  country: one
+  state: one
+  city: one
+  postcode: MyString
+  start_date: 2018-07-20 16:21:45
+
+two:
+  name: MyString
+  country: two
+  state: two
+  city: two
+  postcode: MyString
+  start_date: 2018-07-20 16:21:45

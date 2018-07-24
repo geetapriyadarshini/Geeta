@@ -1,0 +1,33 @@
+<body bgcolor="sky blue">
+<h2>Go To</h2>
+<%#= link_to 'me', geeta_me_path %>
+<%= link_to 'new fr', new_company_path %>
+
+<h1>Listing companies</h1>
+<table>
+  <tr>
+    <th>Company Name</th>
+    <th>Post code</th>
+    <th>Start_Date</th>
+    <th colspan="3">Show and Edit</th>
+  </tr>
+ 
+  <% @companies.each do |company| %>
+    <tr>
+      <td><%= company.name %></td>
+      <td><%= company.postcode %></td>
+      <td><%= company.start_date %></td>
+      <td><%= link_to 'Show', company_path(company) %></td>
+      <td><%= link_to 'Edit', edit_company_path(company) %></td>
+      <td><%= link_to 'Delete', company_path(company),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%#= link_to 'Show', company_path(:company) %>
+</body>
+
+
+
+

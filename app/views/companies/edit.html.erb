@@ -1,0 +1,58 @@
+<body bgcolor="#9999FF">
+<h1>Editing</h1>
+
+<%= form_for :company, url: company_path(@company), method: :patch do |f| %>
+ 
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@company.errors.count, "error") %> prohibited
+        this company from being saved:
+      </h2>
+      <ul>
+        <% @company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :Company_name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :Select_Country %>
+       <%= f.collection_select :country_id, Country.order(:country_name),:id,:country_name, include_blank: true %>
+  </p>
+
+  <p>
+     <%= f.label :Select_state %>
+      <%= f.collection_select :state_id, State.order(:state_name),:id,:state_name, include_blank: true %>
+   
+  </p>
+
+  <p>
+    <%= f.label :Select_City %>
+      <%= f.collection_select :city_id, City.order(:city_name),:id,:city_name, include_blank: true %>
+    </p>
+
+  <p>
+    <%= f.label :Postcode %><br>
+    <%= f.text_field :postcode %>
+  </p>
+
+  <p>
+    <%= f.label :Start_date %><br>
+    <%= f.text_field :start_date %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', city_index_path %>
+</body>

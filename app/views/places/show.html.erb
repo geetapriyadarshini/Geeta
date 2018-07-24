@@ -1,0 +1,21 @@
+<body bgcolor="#CCCCFF">
+<p>
+  <strong>place name:</strong>
+  <%= @place.place_name %>
+</p>
+ 
+
+ <p>
+  <strong>company:</strong>
+  <%= @place.company.name %>
+</p>
+ 
+
+ <%= link_to 'List state', places_path %>
+<%= link_to 'Edit', edit_place_path(@place) %> 
+
+
+
+
+</body>
+

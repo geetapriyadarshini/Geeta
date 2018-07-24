@@ -1,0 +1,36 @@
+<body bgcolor="OOCC99"></body>
+<%= form_with scope: :place, url: places_path, local: true do |form| %>
+
+<% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@place.errors.count, "error") %> prohibited
+        this place from being saved:
+      </h2>
+      <ul>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <p>
+    <%= form.label :place_name %><br>
+    <%= form.text_field :place_name %>
+  </p>
+  <p>
+  <%= form.label :company %><br>
+   <%= form.collection_select :company_id, Company.order(:name),:id,:name, include_blank: true %>
+ </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+  
+<%#= link_to 'me', geeta_path%>
+ 
+<%= link_to 'List cities', places_path %>
+<% end %>

@@ -1,0 +1,24 @@
+<body bgcolor="sky blue">
+<h2>Go To</h2>
+<%#= link_to 'me', geeta_me_path %>
+<%= link_to 'new fr', new_city_path %>
+
+<h1>Listing articles</h1>
+<table>
+  <tr>
+    <th>City Name</th>
+    <th colspan="3">Show and Edit</th>
+  </tr>
+ 
+  <% @cities.each do |city| %>
+    <tr>
+      <td><%= city.city_name %></td>
+      <td><%= link_to 'Show', city_path(city) %></td>
+      <td><%= link_to 'Edit', edit_city_path(city) %></td>
+      <td><%= link_to 'Delete', city_path(city),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</body>
