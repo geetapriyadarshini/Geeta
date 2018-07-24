@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   	#get 'imgs/imgs'
  
-  root 'imgs#index'
+  root 'companies#index'
 
 
   
